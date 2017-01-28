@@ -11,21 +11,17 @@ RUN echo "deb http://download.telldus.com/debian/ stable main" >> /etc/apt/sourc
 RUN apt-get update && \ 
     apt-get -yq install \
 		apache2 \
-		php5 \
 		libapache2-mod-php5 \
 		curl \
 		ca-certificates \
-		php5-curl \
-		php5-json \
-		php5-odbc \
-		php5-sqlite \
 		php5-mysql \
 		php5-mcrypt \ 
 		php5-gd \
 		at \
 		telldus-core \
 		libtelldus-core2 \
-		libtelldus-core-dev && \
+		libtelldus-core-dev \ 
+		subversion && \
 	apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archive/*.deb
 
