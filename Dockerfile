@@ -33,3 +33,6 @@ RUN /usr/sbin/php5enmod mcrypt && a2enmod rewrite
 ADD ./000-default.conf /etc/apache2/sites-available/000-default.conf
 ADD ./run.sh /run.sh
 RUN chmod 755 /*.sh && chown -R www-data:www-data /var/www/html
+
+# Add volumes
+VOLUME /var/www/html /tmp
