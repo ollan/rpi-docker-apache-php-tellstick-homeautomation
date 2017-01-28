@@ -35,3 +35,6 @@ RUN chmod 755 /*.sh && chown -R www-data:www-data /var/www/html
 
 # Add volumes
 VOLUME /var/www/html /tmp
+
+EXPOSE 80
+CMD ["/run.sh"]
