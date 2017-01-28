@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian:latest
 MAINTAINER Johan Axfors <johan@axfors.se>
 
 ## Install base packages
