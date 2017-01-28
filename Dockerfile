@@ -3,12 +3,13 @@ MAINTAINER Johan Axfors <johan@axfors.se>
 
 ## Install base packages
 RUN apt-get update && \
-  apt-get -y install wget
+  apt-get -yq install wget
   
 RUN echo "deb http://download.telldus.com/debian/ stable main" >> /etc/apt/sources.list.d/telldus.list && \
     wget -qO - http://download.telldus.se/debian/telldus-public.key | apt-key add -
 
-RUN apt-get -yq install \
+RUN apt-get update && \ 
+    apt-get -yq install \
 		apache2 \
 		php5 \
 		libapache2-mod-php5 \
