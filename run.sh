@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # install app
-[[ ! -d "/app/.svn" ]] && \
-	svn co svn://karpero.mine.nu/homeautomation /app
+[[ ! -d "/var/www/html/.svn" ]] && \
+	svn co svn://karpero.mine.nu/homeautomation /var/www/html
  
 # update
-svn update /app
+svn update /var/www/html
 
 # excutable
-find /app -iname "*.php" | xargs chmod +x
+find /var/www/html -iname "*.php" | xargs chmod +x
 
 #test
-echo test >> /app/test.txt
+echo test >> /var/www/html/test.txt
 
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND
