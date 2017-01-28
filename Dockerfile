@@ -23,6 +23,7 @@ RUN apt-get update && \
 		libtelldus-core-dev \ 
 		subversion && \
 	apt-get upgrade && \
+	apt-get autoremove && \
 	apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archive/*.deb
 
