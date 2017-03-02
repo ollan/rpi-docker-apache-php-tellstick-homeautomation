@@ -1,4 +1,5 @@
-FROM resin/rpi-raspbian:latest
+
+FROM ulsmith/rpi-raspbian-apache-php
 MAINTAINER Johan Axfors <johan@axfors.se>
 
 ## Install base packages
@@ -27,14 +28,8 @@ RUN apt-get update && \
 	apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archive/*.deb
 
-RUN /usr/sbin/php5enmod mcrypt && a2enmod rewrite
-
-ADD ./000-default.conf /etc/apache2/sites-available/000-default.conf
-ADD ./run.sh /run.sh
-RUN chmod 755 /*.sh && chown -R www-data:www-data /var/www/html
-
 # Add volumes
-VOLUME /var/www/html /tmp
+VOLUME /var/www/html
 
 EXPOSE 80
 CMD ["/run.sh"]
